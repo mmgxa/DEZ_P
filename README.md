@@ -14,8 +14,6 @@ To make the data more usable for this project, it has been split into months (se
 
 
 # 2. Cloud and IaC
-(rubric: The project is developed on the clound and IaC tools are used)
-
 
 ## Setting up GCP
 
@@ -71,7 +69,6 @@ terraform destroy
 
 
 # 3. Data Ingestion - Airflow
-(rubric: End-to-end pipeline: multiple steps in the DAG, uploading data to data lake)
 
 There are 13 files corresponding to each month of Jan 21 - Jan 22. We will create a DAG that downloads each CSV file, converts them to parquet format which is compressed and can make transfers faster, and then uploads them to the datalake (which is GCS in our case). Note that the datalake is an unstructured storage destination where the contents may be of different nature (like text, images, etc.)
 
@@ -115,7 +112,6 @@ airflow dags backfill data_ingest_gcs_liq_dag --reset-dagruns -s 2021-01-01 -e 2
 ![](./img/p3_gcs_after.png)
 
 # 4. Data warehouse - GCP
-(rubric: Tables are partitioned and clustered in a way that makes sense for the upstream queries)
 
 We have already uploaded our data to GCS (datalake). Now we will it move it to our data warehouse (BigQuery). As a reminder, a data warehouse is a structured storage destination.
 
@@ -138,7 +134,6 @@ There are two tasks:
 ![](./img/p4_bq_table_after.png)
 
 # 5. Transformations - dbt
-- date
 
 ## Setup
 To run dbt, we will use docker (linked to our Google BigQuery). This is slightly different from the official setup. The instructions can be found [here](https://github.com/ankurchavda/data-engineering-zoomcamp/blob/main/4_dbt/docker-setup.md). This is reproduced below.
@@ -205,7 +200,6 @@ docker-compose run \
 After running this, you will see the output `Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1`.
 
 
-
 To see the documentation,
 
 ```
@@ -233,10 +227,6 @@ Note that the datatypes have been fixed. For example in our original table `liqu
 
 
 # 6. Dashboard
-(rubric: A dashboard with 2 tiles)
-- top 10 selling brands
-- top 10 selling counties
-- sales by season (pi chart or bar chart)
 
 Here, we read from our table called `dbt_iowa_liq` inside Google Data Studio to create dashboards. This is supposed to be a presentable form of the data for managers, decision makers, and other stakeholders.
 
