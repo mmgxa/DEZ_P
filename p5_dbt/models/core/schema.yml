@@ -1,0 +1,64 @@
+version: 2
+
+sources:
+  - name: core
+    database: dtc-de-01
+    schema: iowa_liquor
+    tables:
+      - name: liquor
+      
+models:
+    - name: dbt_iowa_liq
+      description: >
+        This dataset contains the spirits purchase information of Iowa Class “E” liquor
+        licensees by product and date of purchase from January 2021 to January 2022. The 
+        dataset can be used to analyze total spirits sales in Iowa of individual products 
+        at the store level. 
+      columns:
+          - name: invoiceanditemnumber
+            description: concatenated invoice and line number associated with the liquor order.
+              This provides a unique identifier for the individual liquor products included in the store order.
+          - name: date
+            description: date of order.
+          - name: storenumber
+            description: unique number assigned to the store who ordered the liquor.
+          - name: storename
+            description: name of store who ordered the liquor.
+          - name: address
+            description: address of store who ordered the liquor.
+          - name: city
+            description: city where the store who ordered the liquor is located.
+          - name:  zipcode
+            description: zip code where the store who ordered the liquor is located.
+          - name: countynumber
+            description: iowa county number for the county where store who ordered the liquor is located.
+          - name: county
+            description: county where the store who ordered the liquor is located.
+          - name: category
+            description: category code associated with the liquor ordered.
+          - name: categoryname
+            description: category of the liquor ordered.
+          - name: vendornumber
+            description: the vendor number of the company for the brand of liquor ordered.
+          - name: vendorname
+            description: the vendor name of the company for the brand of liquor ordered.
+          - name: itemnumber
+            description: item number for the individual liquor product ordered.
+          - name: itemdescription
+            description: description of the individual liquor product ordered.
+          - name: pack
+            description: the number of bottles in a case for the liquor ordered.
+          - name: bottlevolumeml
+            description: volume of each liquor bottle ordered in milliliters.
+          - name: statebottlecost
+            description: the amount that alcoholic beverages division paid for each bottle of liquor ordered.
+          - name: statebottleretail
+            description: the amount the store paid for each bottle of liquor ordered.
+          - name: bottlessold
+            description: the number of bottles of liquor ordered by the store.
+          - name: saledollars
+            description: total cost of liquor order (number of bottles multiplied by the state bottle retail).
+          - name: volumesoldliters
+            description: total volume of liquor ordered in liters. (i.e. (bottle volume (ml) x bottles sold)/1,000).
+          - name: volumesold_gallons
+            description: total volume of liquor ordered in gallons. (i.e. (bottle volume (ml) x bottles sold)/3785.411784).

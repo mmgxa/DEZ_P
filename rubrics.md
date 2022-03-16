@@ -1,0 +1,29 @@
+-   Problem description
+   - [ ] 0 points: Problem is not described
+   - [ ] 1 point: Problem is described but shortly or not clearly
+   - [ ] 2 points: Problem is well described and it's clear what the problem the project solves
+-   Cloud
+    - [ ]   0 points: Cloud is not used, things run only locally
+    -  [ ] 2 points: The project is developed on the cloud
+    - [ ]  4 points: The project is developed on the clound and IaC tools are used
+-   Data ingestion (choose either batch or stream)
+    -   Batch / Workflow orchestration
+        -  [ ] 0 points: No workflow orchestration
+        - [ ]  2 points: Partial workflow orchestration: some steps are orchestrated, some run manually
+        -  [ ] 4 points: End-to-end pipeline: multiple steps in the DAG, uploading data to data lake
+    -   Stream
+        -   TODO: Discuss with Ankush
+-   Data warehouse
+    - [ ]  0 points: no DWH is used
+    - [ ]  2 points: Tables are created in DWH, but not optimized
+    -  [ ] 4 points: Tables are partitioned and clustered in a way that makes sense for the upstream queries
+-   Transformations (dbt, spark, etc)
+    -  [ ] TODO: Discuss with Vic
+-   Dashboard
+    -  [ ] 0 points: No dashboard
+    -  [ ] 2 points: A dashboard with 1 tile
+    -  [ ] 4 points: A dashboard with 2 tiles
+-   Reproducibility
+    -  [ ] 0 points: No instructions how to run code at all
+    -  [ ] 2 points: Some instructions are there, but they are not complete
+    - [ ]  4 points: Instructions are clear and it's easy to run the code

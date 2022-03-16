@@ -1,0 +1,14 @@
+de-dbt-bq:
+  outputs:
+    dev:
+      dataset: iowa_liquor
+      fixed_retries: 1
+      keyfile: /.google/credentials/google_credentials.json
+      location: us-west1
+      method: service-account
+      priority: interactive
+      project: dtc-de-01
+      threads: 4
+      timeout_seconds: 300
+      type: bigquery
+  target: dev
